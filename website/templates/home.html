@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<br>
+<div align="center" class="search">
+    <form method="POST">
+        <h1>
+            <label for="searchForLegal">Search for a legal person</label>
+        </h1>
+        <br>
+        <input 
+            type=text
+            class="form-control" 
+            name=search 
+            value="{{ request.form.search }}"
+        >
+        </br>
+        <button 
+            type=submit 
+            class="btn btn-primary"
+        >Search</button>
+    </form>
+</div>
+<br> 
+<div>
+    {% if companies is defined %}
+    <ul class="list-group">
+        {%for company in companies %}
+        <a href={{ url_for('views.companydata', id=company.id) }}><li class="list-group-item">{{company.companyName}}({{company.registryCode}})</li></a>
+        <br>
+        {% endfor %}
+      </ul>
+      {% endif %}
+</div>
+{% endblock %}

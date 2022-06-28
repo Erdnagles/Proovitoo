@@ -1,0 +1,108 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<form method="POST">
+    <br>
+    <h2 align="center">Establishment of the Private limited company</h2>
+    <div class="form-group">
+      <label for="companyName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="companyName"
+        name="companyName"
+        placeholder="Enter your company name"
+      />
+    </div>
+    <div class="form-group">
+        <label for="registryCode">Registry Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="registryCode"
+          name="registryCode"
+          placeholder="Enter registry code"
+        />
+    </div>
+    <div class="form-group">
+        <label for="registrationDate">Registration date</label>
+        <br>
+        <input 
+          type='date' 
+          class="form-control"
+          id="registrationDate" 
+          name="registrationDate"
+          min='1899-01-01' 
+          max='2000-13-13'
+        />
+    </div>
+    <div class="form-group">
+        <label for="capital">Capital</label>
+        <input
+          type="number"
+          class="form-control"
+          id="capital"
+          name="capital"
+          min="2500"
+          placeholder="Enter capital"
+        />
+    </div>
+<!--     <div align="center" class="form-group">
+        <h3><label for="founderShareholder">Founder / Shareholder addition</label></h3>
+        <div>
+          <input 
+            type="radio" 
+            class="form-check-input"
+            id="natOrLegal"
+            name="contact" 
+            value="naturalPerson">
+          <label class="form-check-label">Natural person</label>
+          <br>
+          <input 
+            type="radio"
+            class="form-check-input" 
+            id="natOrLegal2"
+            name="contact" 
+            value="legalPerson"
+          />
+          <label class="form-check-label" for="natOrLegal2">Legal person</label>
+          <input 
+            type="search" 
+            class="form-control" 
+            id="site-search" 
+            name="shareholderSearch" 
+            placeholder="Search for shareholder">
+          <br>
+          <button type="button" class="btn btn-primary">Search</button>
+          <br>
+          <label for="founderShareholder">Founder / Shareholder shares in assets</label>
+          <input
+            type="number"
+            class="form-control"
+            id="sharesAmount"
+            name="sharesAmountl"
+            min="1"
+            placeholder="Enter shares in EUR"
+          />
+      </div> -->
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <script>
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("registrationDate").setAttribute("max", today);
+
+  </script>
+{% endblock %}

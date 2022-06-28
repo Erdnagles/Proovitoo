@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<h1 align="center">Company</h1>
+<div class="company">
+    <ul class="list-group list-group-flush" id="companies">
+        <li class="list-group-item"><h6>Name:</h6>{{ company.companyName }}</li>
+        <li class="list-group-item"><h6>Registry code:</h6>{{ company.registryCode }}</li>
+        <li class="list-group-item"><h6>Registration date:</h6>{{ company.registrationDate}}</li>
+        <li class="list-group-item"><h6>Capital:</h6>{{ company.capital }}</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<br>
+<h1 align="center">List of companies</h1>
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Company name</th>
+        <th scope="col">Registry code</th>
+        <th scope="col">Registration date</th>
+        <th scope="col">Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for company in companies %}
+        <tr>
+            <th>{{ company.id }}</th>
+            <td><a href={{ url_for('views.companydata', id=company.id) }}>{{ company.companyName }}</a></td>
+            <td>{{ company.registryCode }}</td>
+            <td>{{ company.registrationDate }}</td>
+            <td>{{ company.capital }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
